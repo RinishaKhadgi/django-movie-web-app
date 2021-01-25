@@ -1,0 +1,37 @@
+<div class="modal" tabindex="-1" id="editModal-{{movie.id}}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="{% url 'update' movie.id %}" method="POST">
+                {% csrf_token %}
+                <div class="modal-header">
+                    <h5 class="modal-title">{{ movie.fields.Name }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="movieName" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="movieName" name="name"
+                            placeholder="Enter movie name" value="{{ movie.fields.Name }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="movieImage" class="form-label">Image</label>
+                        <input type="text" class="form-control" id="movieImage" name="image"
+                        placeholder="Enter movie image url" value="{{ movie.fields.Pictures.0.url }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="movieRating" class="form-label">Rating</label>
+                        <input type="number" class="form-control" id="movieRating" name="rating"
+                            placeholder="1-10" value="{{ movie.fields.Rating }}" min="1" max="10" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="movieNotes" class="form-label">Notes</label>
+                        <textarea class="form-control" id="movieNotes" name="notes">{{ movie.fields.Notes }}</textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
