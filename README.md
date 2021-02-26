@@ -1,3 +1,2 @@
-Full fledged web application with CRUD functionality, we can add the movie ratings, update, delete and search for the movies!!
-Backend: Django
-Database: Airtable
+Web application with CRUD functionality where we can add movies, update, delete and search for the movies.
+Developed using Django and Airtable
